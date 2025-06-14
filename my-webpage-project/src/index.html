@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeynep’s Diner</title>
+    <meta name="description"
+        content="Zeynep’s Diner: Retro pop band with a cinematic twist. Booking info, gigs, media, and more.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Retro diner script font for headings, clean sans-serif for body -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --red: #e63946;
+            --teal: #00b4d8;
+            --chrome: #d9d9d9;
+            --midnight: #22223b;
+            --shadow: rgba(34, 34, 59, 0.7);
+            --white: #fff;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--midnight) 0%, var(--teal) 100%);
+            color: var(--white);
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(90deg, var(--red) 60%, var(--teal) 100%);
+            box-shadow: 0 4px 16px var(--shadow);
+            padding: 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem 1.5rem;
+        }
+
+        .logo {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.2rem;
+            color: var(--chrome);
+            text-shadow: 2px 2px 8px var(--midnight);
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            position: relative;
+            transition: color 0.2s;
+        }
+
+        nav a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: var(--chrome);
+            transition: width 0.3s;
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+        }
+
+        nav a:hover {
+            color: var(--chrome);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            background: url('https://images.unsplash.com/photo-1616472987257-f2052da17981?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat;
+            min-height: 340px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(34, 34, 59, 0.7) 0%, rgba(0, 180, 216, 0.3) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: var(--chrome);
+        }
+
+        .hero-content h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 3rem;
+            margin: 0.5em 0 0.2em 0;
+            text-shadow: 2px 2px 12px var(--midnight);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 1.5em;
+            text-shadow: 1px 1px 8px var(--midnight);
+        }
+
+        .quick-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 1em;
+        }
+
+        .quick-link-btn {
+            background: var(--teal);
+            color: var(--midnight);
+            border: none;
+            border-radius: 24px;
+            padding: 0.7em 1.8em;
+            font-size: 1.1rem;
+            font-weight: 700;
+            box-shadow: 0 2px 8px var(--shadow);
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .quick-link-btn:hover {
+            background: var(--red);
+            color: var(--chrome);
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 2rem auto;
+            background: rgba(34, 34, 59, 0.85);
+            border-radius: 18px;
+            box-shadow: 0 4px 24px var(--shadow);
+            padding: 2rem 1.5rem;
+        }
+
+        section {
+            margin-bottom: 2.5rem;
+        }
+
+        h2 {
+            font-family: 'Pacifico', cursive;
+            color: var(--teal);
+            font-size: 2rem;
+            margin-bottom: 0.5em;
+        }
+
+        .about-band p,
+        .media-press p,
+        .contact p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .music-embed {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .music-embed iframe,
+        .music-embed audio {
+            border-radius: 12px;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+
+        .gigs-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--midnight);
+            color: var(--chrome);
+            margin-bottom: 1em;
+        }
+
+        .gigs-table th,
+        .gigs-table td {
+            padding: 0.7em 1em;
+            border-bottom: 1px solid var(--teal);
+            text-align: left;
+        }
+
+        .gigs-table th {
+            background: var(--teal);
+            color: var(--midnight);
+        }
+
+        .media-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1em;
+        }
+
+        .media-link {
+            background: var(--chrome);
+            color: var(--midnight);
+            padding: 0.7em 1.2em;
+            border-radius: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 2px 8px var(--shadow);
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .media-link:hover {
+            background: var(--red);
+            color: var(--chrome);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            max-width: 400px;
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            padding: 0.7em;
+            border-radius: 8px;
+            border: 1px solid var(--teal);
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .contact-form button {
+            background: var(--red);
+            color: var(--chrome);
+            border: none;
+            border-radius: 8px;
+            padding: 0.7em 1.5em;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .contact-form button:hover {
+            background: var(--teal);
+            color: var(--midnight);
+        }
+
+        .newsletter {
+            margin-top: 2em;
+            display: flex;
+            flex-direction: column;
+            gap: 0.7em;
+            max-width: 350px;
+        }
+
+        .newsletter input[type="email"] {
+            padding: 0.7em;
+            border-radius: 8px;
+            border: 1px solid var(--teal);
+            font-size: 1rem;
+        }
+
+        .newsletter button {
+            background: var(--teal);
+            color: var(--midnight);
+            border: none;
+            border-radius: 8px;
+            padding: 0.7em 1.5em;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .newsletter button:hover {
+            background: var(--red);
+            color: var(--chrome);
+        }
+
+        .socials {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 1.5em;
+        }
+
+        .socials a {
+            color: var(--teal);
+            font-size: 1.7rem;
+            transition: color 0.2s;
+        }
+
+        .socials a:hover {
+            color: var(--red);
+        }
+
+        footer {
+            background: var(--midnight);
+            color: var(--chrome);
+            text-align: center;
+            padding: 1.2em 0 0.7em 0;
+            font-size: 1rem;
+            margin-top: 2em;
+            border-top: 2px solid var(--teal);
+        }
+
+        @media (max-width: 800px) {
+
+            .navbar,
+            main {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .music-embed {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1em;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            main {
+                padding: 1rem 0.5rem;
+            }
+        }
+    </style>
+    <!-- Font Awesome for social icons -->
+    <script src="https://kit.fontawesome.com/6e2e1c5e3a.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <span class="logo">Zeynep’s Diner</span>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#music">Music</a></li>
+                    <li><a href="#gigs">Gigs</a></li>
+                    <li><a href="#media">Media & Press</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Retro Pop. Cinematic Vibes.</h1>
+            <p>Where 1950s diner dreams meet the mysterious world of Lynchian cinema.<br>
+                For bookings, gigs, and all things Zeynep’s Diner.</p>
+            <div class="quick-links">
+                <a href="#media" class="quick-link-btn">Booking Info</a>
+                <a href="#gigs" class="quick-link-btn">Upcoming Gigs</a>
+            </div>
+        </div>
+    </section>
+    <main>
+        <section id="about" class="about-band">
+            <h2>About the Band</h2>
+            <p>
+                Zeynep’s Diner is a retro pop band blending the infectious melodies of the 1950s–60s with the dreamy,
+                enigmatic atmosphere of classic American diners and the cinematic worlds of David Lynch. Their
+                performances are a fusion of nostalgia, storytelling, and a touch of noir, inviting audiences to step
+                into a world where every song is a scene and every gig is a story.
+            </p>
+        </section>
+        <section id="music" class="music">
+            <h2>Music</h2>
+            <div class="music-embed">
+                <!-- Example embedded audio and video -->
+                <iframe width="320" height="180" src="https://www.youtube.com/embed/ScMzIvxBSi4" title="Music Video"
+                    frameborder="0" allowfullscreen></iframe>
+                <audio controls>
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <a href="https://open.spotify.com/" target="_blank" class="media-link">Listen on Spotify</a>
+        </section>
+        <section id="gigs" class="gigs">
+            <h2>Gigs & Events</h2>
+            <table class="gigs-table" aria-label="Upcoming gigs">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Venue</th>
+                        <th>Location</th>
+                        <th>Tickets</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>July 12, 2025</td>
+                        <td>Neon Diner Club</td>
+                        <td>Berlin, DE</td>
+                        <td><a href="#" class="media-link">Buy</a></td>
+                    </tr>
+                    <tr>
+                        <td>August 2, 2025</td>
+                        <td>Blue Velvet Lounge</td>
+                        <td>Hamburg, DE</td>
+                        <td><a href="#" class="media-link">Buy</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Placeholder for map integration -->
+            <div
+                style="height:180px; background:rgba(0,180,216,0.1); border-radius:12px; display:flex; align-items:center; justify-content:center; color:var(--teal); font-size:1.1rem;">
+                [Map integration coming soon]
+            </div>
+        </section>
+        <section id="media" class="media-press">
+            <h2>Media & Press</h2>
+            <p>
+                For venues and booking managers: Download our press kit, high-res images, technical rider, and read
+                testimonials.
+            </p>
+            <div class="media-links">
+                <a href="#" class="media-link" download>Download Press Kit (PDF)</a>
+                <a href="#" class="media-link" download>High-Res Images</a>
+                <a href="#" class="media-link" download>Technical Rider</a>
+                <a href="#" class="media-link">Testimonials</a>
+            </div>
+        </section>
+        <section id="contact" class="contact">
+            <h2>Contact</h2>
+            <p>For booking inquiries or fan messages, use the form below:</p>
+            <form class="contact-form" id="contactForm" autocomplete="off">
+                <select name="type" required>
+                    <option value="">Select Inquiry Type</option>
+                    <option value="booking">Booking Inquiry</option>
+                    <option value="fan">Fan Message</option>
+                </select>
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+                <button type="submit">Send</button>
+                <div id="formMsg" style="font-size:1rem; color:var(--teal);"></div>
+            </form>
+            <form class="newsletter" id="newsletterForm" autocomplete="off">
+                <label for="newsletter-email">Subscribe for updates:</label>
+                <input type="email" id="newsletter-email" name="newsletter-email" placeholder="Your Email" required>
+                <button type="submit">Sign Up</button>
+                <div id="newsletterMsg" style="font-size:1rem; color:var(--teal);"></div>
+            </form>
+            <div class="socials" aria-label="Social media links">
+                <a href="#" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" title="Facebook" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" title="Spotify" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Zeynep’s Diner &mdash; Retro Pop with a Cinematic Twist</p>
+    </footer>
+    <script>
+        // Contact form handler (demo only)
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            document.getElementById('formMsg').textContent = "Thank you! We'll be in touch soon.";
+            this.reset();
+        });
+        // Newsletter signup handler (demo only)
+        document.getElementById('newsletterForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            document.getElementById('newsletterMsg').textContent = "Subscribed! Watch your inbox for updates.";
+            this.reset();
+        });
+    </script>
+</body>
+
+</html>
