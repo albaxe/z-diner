@@ -10,12 +10,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Retro diner script font for headings, clean sans-serif for body -->
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;700&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat&family=Nickainley:wght@400;700&display=swap"
         rel="stylesheet">
     <style>
+        @font-face {
+            font-family: 'Nickainley';
+            src: url('fonts/nickainley.woff2') format('woff2'),
+                url('fonts/nickainley.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         :root {
             --red: #e63946;
-            --teal: #00b4d8;
+            --teal: #5ce1e6;
             --chrome: #d9d9d9;
             --midnight: #22223b;
             --shadow: rgba(34, 34, 59, 0.7);
@@ -48,11 +57,11 @@
         }
 
         .logo {
-            font-family: 'Pacifico', cursive;
+            font-family: 'Nickainley';
             font-size: 2.2rem;
             color: var(--chrome);
             text-shadow: 2px 2px 8px var(--midnight);
-            letter-spacing: 2px;
+
         }
 
         nav ul {
@@ -119,8 +128,8 @@
         }
 
         .hero-content h1 {
-            font-family: 'Pacifico', cursive;
-            font-size: 3rem;
+            font-family: 'Nickainley';
+            font-size: 4rem;
             margin: 0.5em 0 0.2em 0;
             text-shadow: 2px 2px 12px var(--midnight);
         }
@@ -140,7 +149,8 @@
 
         .quick-link-btn {
             background: var(--teal);
-            color: var(--midnight);
+            color: black;
+            /*var(--midnight);*/
             border: none;
             border-radius: 24px;
             padding: 0.7em 1.8em;
@@ -162,7 +172,7 @@
             background: rgba(34, 34, 59, 0.85);
             border-radius: 18px;
             box-shadow: 0 4px 24px var(--shadow);
-            padding: 2rem 1.5rem;
+            padding: 0.5rem 3rem;
         }
 
         section {
@@ -170,10 +180,11 @@
         }
 
         h2 {
-            font-family: 'Pacifico', cursive;
+            font-family: 'Nickainley';
             color: var(--teal);
-            font-size: 2rem;
+            font-size: 3rem;
             margin-bottom: 0.5em;
+            clear: both;
         }
 
         .about-band p,
@@ -183,10 +194,19 @@
             line-height: 1.7;
         }
 
+        .band-image {
+            max-width: 25%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px var(--shadow);
+            float: right;
+            margin-left: 0.5rem;
+        }
+
         .music-embed {
             display: flex;
             flex-wrap: wrap;
-            gap: 2rem;
+            gap: 1rem;
             align-items: center;
             margin-bottom: 1.5rem;
         }
@@ -238,6 +258,10 @@
         .media-link:hover {
             background: var(--red);
             color: var(--chrome);
+        }
+
+        A {
+            color: var(--teal);
         }
 
         .contact-form {
@@ -393,25 +417,27 @@
     <main>
         <section id="about" class="about-band">
             <h2>About the Band</h2>
+            <img src="img/bandbild.png" alt="Zeynep's Diner Band" class="band-image">
             <p>
-                Zeynep’s Diner is a retro pop band blending the infectious melodies of the 1950s–60s with the dreamy,
-                enigmatic atmosphere of classic American diners and the cinematic worlds of David Lynch. Their
-                performances are a fusion of nostalgia, storytelling, and a touch of noir, inviting audiences to step
-                into a world where every song is a scene and every gig is a story.
+                Inspired by David Lynch's dreamy cinematic universe where the dark subconscious and violence are
+                portrayed in fascinating contrast with humor and light-hearted Americana, Zeynep's Diner plays
+                1950s-1960s American music with homage to its pastel colors, whimsical melodies, wistfulness, and
+                signature diner visuals. The band's repertoire is largely inspired by Lynch's Blue Velvet, Mulholland
+                Drive and Twin Peaks and features gems from artists such as Lesley Gore, Bobby Vinton, Paul Anka, Roy
+                Orbison, Connie Francis, Connie Stevens, The Platters, and Linda Scott.
             </p>
         </section>
         <section id="music" class="music">
             <h2>Music</h2>
             <div class="music-embed">
                 <!-- Example embedded audio and video -->
-                <iframe width="320" height="180" src="https://www.youtube.com/embed/ScMzIvxBSi4" title="Music Video"
-                    frameborder="0" allowfullscreen></iframe>
-                <audio controls>
-                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
-                    Your browser does not support the audio element.
-                </audio>
+                <iframe width="45%" height="315" src="https://www.youtube.com/embed/54A0KclvjFk?si=qfUYzH_1yaC9bItp"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="45%%" height="300" scrolling="no" frameborder="no" allow="autoplay; encrypted-media"
+                    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%3Aplaylists%3A2234988863%3Fsecret_token%3Ds-WH66XVQVBqf&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
             </div>
-            <a href="https://open.spotify.com/" target="_blank" class="media-link">Listen on Spotify</a>
         </section>
         <section id="gigs" class="gigs">
             <h2>Gigs & Events</h2>
@@ -421,29 +447,21 @@
                         <th>Date</th>
                         <th>Venue</th>
                         <th>Location</th>
-                        <th>Tickets</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>July 12, 2025</td>
-                        <td>Neon Diner Club</td>
-                        <td>Berlin, DE</td>
-                        <td><a href="#" class="media-link">Buy</a></td>
+                        <td>October 1, 2026</td>
+                        <td>Gamla Enskede Bryggeri</td>
+                        <td>Stockholm</td>
                     </tr>
                     <tr>
-                        <td>August 2, 2025</td>
-                        <td>Blue Velvet Lounge</td>
-                        <td>Hamburg, DE</td>
-                        <td><a href="#" class="media-link">Buy</a></td>
+                        <td>September 5, 2026</td>
+                        <td>Årstalidens dansbana</td>
+                        <td>Stockholm</td>
                     </tr>
                 </tbody>
             </table>
-            <!-- Placeholder for map integration -->
-            <div
-                style="height:180px; background:rgba(0,180,216,0.1); border-radius:12px; display:flex; align-items:center; justify-content:center; color:var(--teal); font-size:1.1rem;">
-                [Map integration coming soon]
-            </div>
         </section>
         <section id="media" class="media-press">
             <h2>Media & Press</h2>
@@ -452,58 +470,27 @@
                 testimonials.
             </p>
             <div class="media-links">
-                <a href="#" class="media-link" download>Download Press Kit (PDF)</a>
-                <a href="#" class="media-link" download>High-Res Images</a>
-                <a href="#" class="media-link" download>Technical Rider</a>
-                <a href="#" class="media-link">Testimonials</a>
+                <a href="epk/Zeynep's Diner.pdf" class="media-link" download>Download Press Kit (PDF)</a>
+                <!-- <a href="#" class="media-link" download>High-Res Images</a>
+                    <a href="#" class="media-link" download>Technical Rider</a>
+                    <a href="#" class="media-link">Testimonials</a> -->
             </div>
         </section>
         <section id="contact" class="contact">
             <h2>Contact</h2>
-            <p>For booking inquiries or fan messages, use the form below:</p>
-            <form class="contact-form" id="contactForm" autocomplete="off">
-                <select name="type" required>
-                    <option value="">Select Inquiry Type</option>
-                    <option value="booking">Booking Inquiry</option>
-                    <option value="fan">Fan Message</option>
-                </select>
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
-                <button type="submit">Send</button>
-                <div id="formMsg" style="font-size:1rem; color:var(--teal);"></div>
-            </form>
-            <form class="newsletter" id="newsletterForm" autocomplete="off">
-                <label for="newsletter-email">Subscribe for updates:</label>
-                <input type="email" id="newsletter-email" name="newsletter-email" placeholder="Your Email" required>
-                <button type="submit">Sign Up</button>
-                <div id="newsletterMsg" style="font-size:1rem; color:var(--teal);"></div>
-            </form>
-            <div class="socials" aria-label="Social media links">
-                <a href="#" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" title="Facebook" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="#" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="#" title="Spotify" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
-            </div>
+            <p>For booking inquiries or fan messages, please e-mail
+                <a href="mailto:zeynepsdiner@windlake.se">zeynepsdiner@windlake.se</a>.
+            </p>
+            <p>
+                <a href="https://www.facebook.com/zeynepsdiner" class="media-link">Follow us on Facebook</a>
+                <a href="https://www.instagram.com/zeynepsdiner" class="media-link">Follow us on Instagram</a>
+            </p>
+
         </section>
     </main>
     <footer>
-        <p>&copy; 2025 Zeynep’s Diner &mdash; Retro Pop with a Cinematic Twist</p>
+        <p>&copy; 2026 Zeynep’s Diner &mdash; Retro Pop with a Cinematic Twist</p>
     </footer>
-    <script>
-        // Contact form handler (demo only)
-        document.getElementById('contactForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            document.getElementById('formMsg').textContent = "Thank you! We'll be in touch soon.";
-            this.reset();
-        });
-        // Newsletter signup handler (demo only)
-        document.getElementById('newsletterForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            document.getElementById('newsletterMsg').textContent = "Subscribed! Watch your inbox for updates.";
-            this.reset();
-        });
-    </script>
 </body>
 
 </html>
