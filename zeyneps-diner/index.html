@@ -69,9 +69,11 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem 2rem;
             margin: 0;
             padding: 0;
+            justify-content: center;
         }
 
         nav a {
@@ -82,6 +84,7 @@
             letter-spacing: 1px;
             position: relative;
             transition: color 0.2s;
+            white-space: nowrap;
         }
 
         nav a::after {
@@ -377,6 +380,41 @@
                 gap: 1em;
             }
 
+            nav ul {
+                justify-content: center;
+                gap: 0.7rem 1.2rem;
+            }
+
+            .band-image {
+                float: none;
+                display: block;
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                margin: 0 0 1.5rem 0;
+            }
+
+            .music-embed {
+                width: 100%;
+                gap: 1.5rem;
+            }
+
+            .music-embed iframe,
+            .music-embed audio {
+                width: 100% !important;
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+
+            .contact .media-link {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+                text-align: center;
+                margin-bottom: 0.8rem;
+                white-space: nowrap;
+            }
+
             .hero-content h1 {
                 font-size: 2rem;
             }
@@ -437,7 +475,7 @@
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <iframe width="45%%" height="300" scrolling="no" frameborder="no" allow="autoplay; encrypted-media"
+                <iframe width="45%" height="300" scrolling="no" frameborder="no" allow="autoplay; encrypted-media"
                     src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%3Aplaylists%3A2234988863%3Fsecret_token%3Ds-WH66XVQVBqf&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
             </div>
         </section>
